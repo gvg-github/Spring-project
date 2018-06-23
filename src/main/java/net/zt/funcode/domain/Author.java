@@ -22,10 +22,10 @@ public class Author {
 	@Column(name="id")
 	private Long id;
 	
-	@Column(name="first_name")
+	@Column(name="firstname")
 	private String firstname;
 	
-	@Column(name="last_name")
+	@Column(name="lastname")
 	private String lastname;
 	
 	@Column(name="email")

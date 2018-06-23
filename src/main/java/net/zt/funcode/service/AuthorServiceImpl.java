@@ -12,37 +12,42 @@ import net.zt.funcode.repository.AuthorRepository;
 @Service
 public class AuthorServiceImpl implements AuthorService {
 
-	@Autowired
-	private AuthorRepository authorRepo;
-	
-	@Override
-	@Transactional(readOnly=true)
-	public Author get(Long id) {
-	
-		return authorRepo.findOne(id);
-	}
+    @Autowired
+    private AuthorRepository authorRepo;
 
-	@Override
-	@Transactional(readOnly=true)
-	public List<Author> getAll() {
+    @Override
+    @Transactional(readOnly = true)
+    public Author get(Long id) {
 
-		return authorRepo.findAll();
-	}
+        return authorRepo.findOne(id);
+    }
 
-	@Override
-	@Transactional
-	public void save(Author author) {
+    @Override
+    @Transactional(readOnly = true)
+    public List<Author> getAll() {
 
-		authorRepo.save(author);
-	}
+        return authorRepo.findAll();
+    }
 
-	@Override
-	@Transactional
-	public void remove(Author author) {
+    @Override
+    @Transactional
+    public void save(Author author) {
+        if (author.getId() == null) {
+            setId(author);
+        }
+        authorRepo.save(author);
+    }
 
-		authorRepo.delete(author);
-	}
+    @Override
+    @Transactional
+    public void remove(Author author) {
 
-	
-	
+        authorRepo.delete(author);
+    }
+
+    @Transactional()
+    public void setId(Author author) {
+        Long id = authorRepo.findMaxId();
+        author.setId(id);
+    }
 }

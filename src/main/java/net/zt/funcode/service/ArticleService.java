@@ -10,7 +10,9 @@ import net.zt.funcode.domain.Article;
 public interface ArticleService {
 	
 	public Page<Article> getAll(Pageable pageable);
-	
+
+	public List<Article> getAll();
+
 	public Article get(Long id);
 	
 	public void save(Article article);

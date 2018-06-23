@@ -33,7 +33,7 @@
     <div id="templatemo_menu">
     
         <ul>
-            <li><a href="${contextPath}">Главная</a></li>
+            <li><a href="/">Главная</a></li>
             <li><a href="${contextPath}/articles/add">Написать статью</a></li>
         </ul>	
     
@@ -50,7 +50,7 @@
      
          <div class='post_section view'>
          <h2><a class='article__title' href='' ></a>${article.title}</h2>
-         <strong>Дата: </span></strong><span class='article__date'><fmt:formatDate pattern="yyyy-MM-dd" 
+         <strong><span>Дата: </span></strong><span class='article__date'><fmt:formatDate pattern="yyyy-MM-dd"
             value="${article.publishedDate}" /></span> | <strong>Автор: </strong> <span class='article__author'>${article.author.firstname}</span>
          <div class="cleaner"></div>
          <p><div class='article__content view'>${article.content}</div>

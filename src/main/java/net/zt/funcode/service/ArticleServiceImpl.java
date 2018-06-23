@@ -16,37 +16,39 @@ import net.zt.funcode.repository.ArticleRepository;
 @Service
 public class ArticleServiceImpl implements ArticleService {
 
-	@Autowired
-	private ArticleRepository articleRepo;
-	
-	@Override
-	@Transactional(readOnly=true)
-	public Page<Article> getAll(Pageable pageable) {
-		
-		Page<Article> articles = articleRepo.findAll(pageable);
-		
-		return articles;
-	}
+    @Autowired
+    private ArticleRepository articleRepo;
 
-	@Override
-	@Transactional(readOnly=true)
-	public Article get(Long id) {
-	
-		return articleRepo.findOne(id);
-	}
+    @Override
+    @Transactional(readOnly = true)
+    public Page<Article> getAll(Pageable pageable) {
+        Page<Article> articles = articleRepo.findAll(pageable);
+        return articles;
+    }
 
-	@Override
-	@Transactional
-	public void save(Article article) {
-		
-		articleRepo.save(article);
-	}
+    @Override
+    @Transactional(readOnly = true)
+    public List<Article> getAll() {
+        List<Article> articles = (List<Article>) articleRepo.findAll();
+        return articles;
+    }
 
-	@Override
-	@Transactional(readOnly=true)
-	public Page<Article> getByCategoryId(Long id, Pageable pageable) {
-		
-		Page<Article> articles = articleRepo.findByCategoryId(id, pageable);
-		return articles;
-	}
+    @Override
+    @Transactional(readOnly = true)
+    public Article get(Long id) {
+        return articleRepo.findOne(id);
+    }
+
+    @Override
+    @Transactional
+    public void save(Article article) {
+        articleRepo.save(article);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Page<Article> getByCategoryId(Long id, Pageable pageable) {
+        Page<Article> articles = articleRepo.findByCategoryId(id, pageable);
+        return articles;
+    }
 }

@@ -33,7 +33,8 @@
     <div id="templatemo_menu">
     
         <ul>
-            <li><a href="${contextPath}">Главная</a></li>
+            <%--<li><a href="${contextPath}">Главная</a></li>--%>
+            <li><a href="/">Главная</a></li>
             <li><a href="${contextPath}/articles/add">Написать статью</a></li>
         </ul>    	
     
@@ -70,6 +71,7 @@
             <span class="author_info_title">Данные автора*</span>
            <form:input path="author.firstname"  type="text" placeholder="Имя" class="add_author_firstname" />
            <form:input path="author.lastname" type="text" placeholder="Фамилия" name="add_author_lastname" />
+           <form:input path="author.email" type="text" placeholder="email" name="add_author_email" />
          </div>
 
          <input type="submit"  class="button_sub" value="Опубликовать" />

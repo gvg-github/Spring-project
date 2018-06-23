@@ -17,7 +17,10 @@ import net.zt.funcode.domain.Article;
 public interface ArticleRepository extends PagingAndSortingRepository<Article, Long>{
 	
 	@Query("select  a FROM Article a WHERE a.category.id=:id")
-	public Page<Article> findByCategoryId(@Param("id")Long id, Pageable pageable);
+	Page<Article> findByCategoryId(@Param("id")Long id, Pageable pageable);
+
+	@Query("SELECT MAX(a.id) FROM Article a")
+	Long findMaxId();
 
 	
 	

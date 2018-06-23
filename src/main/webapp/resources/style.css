@@ -193,6 +193,14 @@ cite span { color: #fff; }
 	background: #f5f4f4 url(images/templatemo_content.png) right repeat-y;
 }
 
+#templatemo_content_wrapper_edit {
+    clear: both;
+    width: 980px;
+    padding: 0 10px;
+    margin: 0 auto;
+    /*background: #f5f4f4 url(images/templatemo_content.png) right repeat-y;*/
+}
+
 
 #templatemo_add_content_wrapper {
 
@@ -527,6 +535,12 @@ width: 100px;
 	float: right;
 	width: 270px;
 	padding: 40px 0;
+}
+
+#templatemo_sidebar_three {
+    float: right;
+    /*width: 270px;*/
+    padding: 40px 0;
 }
 
 #templatemo_sidebar_two .banner_250x200 {

@@ -12,38 +12,45 @@ import net.zt.funcode.repository.CategoryRepository;
 @Service
 public class CategoryServiceImpl implements CategoryService {
 
-	@Autowired
-	private CategoryRepository categoryRepo;
-	
-	@Override
-	@Transactional(readOnly=true)
-	public Category get(Long id) {
+    @Autowired
+    private CategoryRepository categoryRepo;
 
-		return categoryRepo.findOne(id);
-	}
+    @Override
+    @Transactional(readOnly = true)
+    public Category get(Long id) {
 
-	@Override
-	@Transactional(readOnly=true)
-	public List<Category> getAll() {
+        return categoryRepo.findOne(id);
+    }
 
-		return categoryRepo.findAll();
-	}
+    @Override
+    @Transactional(readOnly = true)
+    public List<Category> getAll() {
 
-	@Override
-	@Transactional
-	public void save(Category category) {
+        return categoryRepo.findAll();
+    }
 
-		categoryRepo.save(category);
-	}
+    @Override
+    @Transactional
+    public void save(Category category) {
+        if (category.getId() == null){
+            setId(category);
+        }
+        categoryRepo.save(category);
+    }
 
-	@Override
-	@Transactional
-	public void remove(Category category) {
-	
-		categoryRepo.delete(category);
-		
-	}
-	
-	
+    @Override
+    @Transactional
+    public void remove(Category category) {
+
+        categoryRepo.delete(category);
+
+    }
+
+    @Transactional()
+    public void setId(Category category) {
+        Long id = categoryRepo.findMaxId();
+        category.setId(id);
+    }
+
 
 }
