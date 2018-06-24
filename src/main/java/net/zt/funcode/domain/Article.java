@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -31,16 +33,18 @@ public class Article {
 	@Temporal(TemporalType.TIMESTAMP)
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
 	private Date publishedDate;
-	
+
+	@Size(min=2, max=150, message="{validation.title.size}")
 	@Column(name="title")
 	private String title;
-	
-	
+
+    @Size(min=100, message="{validation.content.size}")
 	@Column(name="content")
 	private String content;
 	
 	@ManyToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name="author_id")
+    @Valid
 	private Author author;
 	
 	@ManyToOne
@@ -95,9 +99,5 @@ public class Article {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
-	
-	
-	
-	
 
 }

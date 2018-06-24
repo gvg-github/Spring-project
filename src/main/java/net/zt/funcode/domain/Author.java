@@ -34,7 +34,6 @@ public class Author {
 	@JsonIgnore
 	@OneToMany(mappedBy="author", fetch=FetchType.LAZY)
 	private List<Article> articles;
-	
 
 	public List<Article> getArticles() {
 		return articles;

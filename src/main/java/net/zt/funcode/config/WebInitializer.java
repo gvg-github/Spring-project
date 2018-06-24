@@ -56,13 +56,5 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
     	return new Filter[]{characterEncodingFilter, httpMethodFilter, openEntityManagerFilter};
     	
     }
-	
-	
-	
-	
-	
-	
-	
-	
 
 }

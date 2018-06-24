@@ -18,14 +18,12 @@ public class AuthorServiceImpl implements AuthorService {
     @Override
     @Transactional(readOnly = true)
     public Author get(Long id) {
-
         return authorRepo.findOne(id);
     }
 
     @Override
     @Transactional(readOnly = true)
     public List<Author> getAll() {
-
         return authorRepo.findAll();
     }
 
@@ -41,7 +39,6 @@ public class AuthorServiceImpl implements AuthorService {
     @Override
     @Transactional
     public void remove(Author author) {
-
         authorRepo.delete(author);
     }
 

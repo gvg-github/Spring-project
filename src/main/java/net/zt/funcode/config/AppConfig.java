@@ -20,6 +20,7 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.LocalEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 
 @Configuration
 @EnableJpaRepositories("net.zt.funcode.repository")
@@ -79,5 +80,4 @@ public class AppConfig {
         return tm;
 
     }
-
 }
