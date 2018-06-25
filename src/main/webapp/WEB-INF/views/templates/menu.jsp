@@ -5,6 +5,7 @@
 
 <spring:message code="label_home_page" var="labelHome" />
 <spring:message code="label_create_article" var="labelCreate" />
+<spring:message code="label_locale" var="labelLocale" />
 <c:set value="${pageContext.request.contextPath}" var="contextPath" />
 
     <div id="templatemo_menu">
@@ -12,6 +13,7 @@
         <ul>
             <li><a href="${contextPath}">${labelHome}</a></li>
             <li><a href="${contextPath}/articles/add">${labelCreate}</a></li>
-        </ul>    	
+            <li><a href="${contextPath}/articles/add">${labelLocale}</a></li>
+        </ul>
     </div> <!-- end of templatemo_menu -->
    

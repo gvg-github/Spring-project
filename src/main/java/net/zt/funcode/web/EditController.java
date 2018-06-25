@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -32,19 +33,32 @@ public class EditController {
     @Autowired
     private ArticleService articleService;
 
+//    @RequestMapping(method = RequestMethod.GET)
+//    public String home(Model uiModel) {
+//        List<Category> categories = categoryService.getAll();
+//        uiModel.addAttribute("categories", categories);
+//
+//        List<Author> authors = authorService.getAll();
+//        uiModel.addAttribute("authors", authors);
+//
+//        List<Article> articles = articleService.getAll();
+//        uiModel.addAttribute("articles", articles);
+//
+//        return "editpages/editMain";
+////        return "editpages/editpage";
+//    }
+
     @RequestMapping(method = RequestMethod.GET)
-    public String home(Model uiModel) {
+    public ModelAndView openEditPage() {
+        ModelAndView view = new ModelAndView("editpages/editMain");
         List<Category> categories = categoryService.getAll();
-        uiModel.addAttribute("categories", categories);
+        view.addObject("categories", categories);
 
         List<Author> authors = authorService.getAll();
-        uiModel.addAttribute("authors", authors);
+        view.addObject("authors", authors);
 
         List<Article> articles = articleService.getAll();
-        uiModel.addAttribute("articles", articles);
-
-        return "editpages/editMain";
-//        return "editpages/editpage";
-
+        view.addObject("articles", articles);
+        return view;
     }
 }
