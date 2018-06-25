@@ -20,6 +20,9 @@
 <c:url value="/categories/changeCategory" var="changeCategory"/>
 <c:url value="/categories/add" var="addCategory"/>
 <c:url value="/authors/getAuthors" var="getAuthors"/>
+<c:url value="/authors/deleteAuthor" var="deleteAuthor"/>
+<c:url value="/authors/changeAuthor" var="changeAuthor"/>
+<c:url value="/authors/add" var="addAuthor"/>
 <div id="templatemo_header_wrapper">
     <div id="templatemo_header">
 
@@ -84,7 +87,7 @@
                 </table>
                 </c:if>
                 <c:if test="${type == 'author'}">
-                <a href="${pageContext.request.contextPath}/add-new-author">Add new author</a>
+                <a href="${addAuthor}">Add new author</a>
                 <table>
                     <tr>
                         <th>Id</th>
@@ -98,9 +101,14 @@
                             <td>${object.id}</td>
                             <td>${object.firstname}</td>
                             <td>${object.lastname}</td>
-                            <td><a href="/change/${object.id}">Change this item</a></td>
-                            <td><a href="/delete/${object.id}">Delete this item</a></td>
-                            <td><button type="submit" name=${deleteCategory} value="${object.id}">delete</button></td>
+                            <td><form action="${changeAuthor}" method="post">
+                                <button type="submit" name="id" value="${object.id}">Change</button>
+                            </form>
+                            </td>
+                            <td><form action="${deleteAuthor}" method="post">
+                                <button type="submit" name="id" value="${object.id}">Delete</button>
+                            </form>
+                            </td>
                         </tr>
                     </c:forEach>
                 </table>

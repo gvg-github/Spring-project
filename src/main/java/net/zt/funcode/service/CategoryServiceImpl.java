@@ -49,6 +49,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Transactional()
     public void setId(Category category) {
         Long id = categoryRepo.findMaxId();
+        id++;
         category.setId(id);
     }
 

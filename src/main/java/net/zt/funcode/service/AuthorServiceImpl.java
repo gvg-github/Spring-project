@@ -45,6 +45,7 @@ public class AuthorServiceImpl implements AuthorService {
     @Transactional()
     public void setId(Author author) {
         Long id = authorRepo.findMaxId();
+        id++;
         author.setId(id);
     }
 }

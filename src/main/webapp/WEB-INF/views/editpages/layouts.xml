@@ -8,4 +8,7 @@
     <definition extends = "default" name = "editpages/editCategory">
         <put-attribute name = "content" value="/WEB-INF/views/editpages/editCategory.jsp" />
     </definition>
+    <definition extends = "default" name = "editpages/editAuthor">
+        <put-attribute name = "content" value="/WEB-INF/views/editpages/editAuthor.jsp" />
+    </definition>
 </tiles-definitions>
